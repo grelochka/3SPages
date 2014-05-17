@@ -211,6 +211,7 @@
 <div data-role="page" id="p2">
 	<div data-role="content">
 		<h1>нет соединения с сетью :(</h1>
+		<canvas id="my" width="450" height="400" style="border: 1px solid black;"></canvas>
 	</div>
 		<div data-role="footer" >
 	
@@ -251,6 +252,72 @@ var timer;
 		}	
 
 	}
+
+
+//canvas
+var my = document.getElementById('my');
+  var c = my.getContext('2d');
+  c.beginPath();
+   c.rect(0,0,450, 400);
+   c.fillStyle='ccc';
+   c.fill();
+   c.closePath();
+
+   c.lineWidth=17;
+   c.beginPath();
+   c.moveTo(120, 100);
+   c.lineTo(50,100);
+   c.lineTo(50,300);
+   c.lineTo(120,300);
+   c.lineTo(120,180);
+   c.lineTo(50,180);
+     c.strokeStyle = '#aa22bb';
+     c.stroke();
+   c.closePath();
+
+   c.beginPath();
+   c.moveTo(134, 300);
+   c.lineTo(144, 300);
+        c.strokeStyle = '#aa22bb';
+     c.stroke();
+   c.closePath();
+
+
+    c.beginPath();
+   c.moveTo(230, 100);
+   c.lineTo(160,100);
+   c.lineTo(160,300);
+   c.lineTo(237,300);
+     c.strokeStyle = '#aa22bb';
+     c.stroke();
+   c.closePath();
+
+      c.beginPath();
+   c.moveTo(244, 300);
+   c.lineTo(254, 300);
+        c.strokeStyle = '#aa22bb';
+     c.stroke();
+   c.closePath();
+
+   c.beginPath();
+   c.moveTo(320, 180);
+   c.lineTo(320, 100);
+   c.lineTo(270,100);
+   c.lineTo(270,300);
+   c.lineTo(340,300);
+   c.lineTo(340,180);
+   c.lineTo(270,180);
+     c.strokeStyle = '#aa22bb';
+     c.stroke();
+   c.closePath();
+
+   c.beginPath();
+   c.moveTo(354, 300);
+   c.lineTo(364, 300);
+        c.strokeStyle = '#aa22bb';
+     c.stroke();
+   c.closePath();
+
 
 </script>
 </html>	        
