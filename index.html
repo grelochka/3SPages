@@ -36,6 +36,9 @@
         }
 
         }
+        .netConBtn{
+        	text-align: center;
+        }
 
 
         </style>
@@ -188,11 +191,10 @@
 <!-- pages with netConInf-->		
 <div data-role="page" id="p1">
 	<div data-role="header"  >
-				<h1>Подключение к сети</h1>
+				<h1 class="netConBtn">Подключение к сети</h1>
 	</div>
 	<div data-role="content">
-		<div id="netSt"></div>	
-		<div id="netType"></div>
+		<div id="netType" class="netConBtn"></div>
 	</div>
 	<div data-role="footer" >
 	<div data-role="navbar">
@@ -208,13 +210,12 @@
 
 <div data-role="page" id="p2">
 	<div data-role="content">
-		<h1>нет соединения с сетью</h1>
+		<h1 class="netConBtn">нет соединения с сетью</h1>
 	</div>
 		<div data-role="footer" >
 	<div data-role="navbar">
-	   <ul>
-	       <li><a href="#home_page" data-role="button" >home</a></li>
-	   </ul>
+	   <a class="netConBtn" href="#home_page" data-role="button" >home</a>
+	  
 	</div>
 	</div>
 </div>
@@ -228,7 +229,7 @@ var timer;
 		document.addEventListener("deviceready", onDeviceReady, false);
 			function onDeviceReady() {
 			    net = navigator.connection.type;
-			    document.getElementById("netSt").innerHTML = net;
+			    document.getElementById("netType").innerHTML = net;
 			    document.addEventListener("online", onOnline, false);
 			    document.addEventListener("offline", onOffline, false);
 
