@@ -5,6 +5,13 @@
         versionCode = "10" 
         version     = "1.0.0" >
 
+
+    <!---------plugs-->
+    <gap: plugin name="org.apache.cordova.device">
+        <gap: plugin name="org.apache.cordova.dialogs">
+        <gap: plugin name="org.apache.cordova.network-information">
+    
+
     <!-- versionCode is optional and Android only -->
 
     <name>MobApp 3SimplePages</name>
