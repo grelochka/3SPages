@@ -7,9 +7,9 @@
 
 
     <!---------plugs-->
-    <gap: plugin name="org.apache.cordova.device">
-        <gap: plugin name="org.apache.cordova.dialogs">
-        <gap: plugin name="org.apache.cordova.network-information">
+    <gap:plugin name="org.apache.cordova.device" version="0.2.8" />
+    <gap:plugin name="org.apache.cordova.dialogs" />
+    <gap:plugin name="org.apache.cordova.network-information"/>
     
 
     <!-- versionCode is optional and Android only -->
