@@ -331,15 +331,14 @@ var my = document.getElementById('my');
 function crCont(){
 	i_name = document.getElementById("input_name").value;
 	i_f_name = document.getElementById("input_f_name").value;
-	var contact = navigator.contacts.create();
-	contact.displayName = i_name+" "+i_f_name;
+	var contact = navigator.contacts.create({"displayName": "Test User"});
 
 
 	
 	
 	
-	contact.name.givenName = i_name;
-	contact.name.familyName = i_f_name;
+	//contact.name.givenName = i_name;
+	//contact.name.familyName = i_f_name;
 
 	contact.save(onSuccess,onError);
 }
