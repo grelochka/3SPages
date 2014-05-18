@@ -242,6 +242,21 @@ var timer;
 			    document.addEventListener("offline", onOffline, false);
 
 
+			    //--------------------------
+
+
+				var contact = navigator.contacts.create();
+		        contact.displayName = "Plumber";
+		        contact.nickname = "Plumber";       //specify both to support all devices
+		        var name = new ContactName();
+		        name.givenName = "Jane";
+		        name.familyName = "Doe";
+		        contact.name = name;
+
+		        // save
+		        
+
+
 			}
 		function onOnline(){
 			timer = setInterval(chNet,1000);
@@ -329,7 +344,7 @@ var my = document.getElementById('my');
 //work with contacts
 
 function crCont(){
-	i_name = document.getElementById("input_name").value;
+	/*i_name = document.getElementById("input_name").value;
 	i_f_name = document.getElementById("input_f_name").value;
 	var contact = navigator.contacts.create();
 	contact.displayName = "test_User";
@@ -342,14 +357,16 @@ function crCont(){
 	//contact.name = name;
 
 
-	contact.save(onSuccess,onError);
+	contact.save(onSuccess,onError);*/
+
+	contact.save(onSaveSuccess,onSaveError);
 }
 
-function onSuccess(contact) {
+function onSaveSuccess(contact) {
     alert("Save Success");
 };
 
-function onError(contactError) {
+function onSaveError(contactError) {
     alert("Error = " + contactError.code);
 };
 </script>
