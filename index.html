@@ -336,10 +336,10 @@ function crCont(){
 	contact.nickname = "test_User";
 
 
-	var name = new ContactName();
-	name.givenName = "Jane";
-	name.familyName = "Doe";
-	contact.name = name;
+	//var name = new ContactName();
+	contact.name.givenName = "Jane";
+	contact.name.familyName = "Doe";
+	//contact.name = name;
 
 
 	contact.save(onSuccess,onError);
