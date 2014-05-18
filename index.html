@@ -84,6 +84,10 @@
 				</div>
 
 				
+<p id="p_name">введите имя <input type="text" id="input_name"/></p>
+<p id="p_f_name">введите фамилию <input type="text" id="input_f_name"/></p>
+<input type="button" onclick="crCont()" value="создать контакт"/>	
+
 			</div>
 
 
@@ -100,7 +104,10 @@
 
 			</div>
 
-		</div>
+
+
+
+</div>
 
 <div data-role="page" id="cat_page">
 			<div data-role="header" >
@@ -319,5 +326,29 @@ var my = document.getElementById('my');
    c.closePath();
 
 
+//work with contacts
+
+function crCont(){
+	i_name = document.getElementById("input_name").value;
+	i_f_name = document.getElementById("input_f_name").value;
+	var contact = navigator.contacts.create();
+	contact.displayName = i_name+" "+i_f_name;
+
+
+	var name = new ContactName();
+	name.givenName = i_name;
+	name.familyName = i_f_name;
+	contact.name = name;
+
+	contact.save(onSuccess,onError);
+}
+
+function onSuccess(contact) {
+    alert("Save Success");
+};
+
+function onError(contactError) {
+    alert("Error = " + contactError.code);
+};
 </script>
 </html>	        
