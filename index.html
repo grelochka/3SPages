@@ -9,7 +9,7 @@
         <script src="jquery-1.10.2.min.js" type="text/javascript"></script>
         <script src="jquery.mobile-1.4.2.js" type="text/javascript"></script>
         <script src="phonegap.js" type="text/javascript"></script>
-        
+
 
 
         
@@ -234,7 +234,7 @@
 <script type="text/javascript">
 var net;
 var timer;
-var contact;
+
 	function init(){
 		document.addEventListener("deviceready", onDeviceReady, false);
 			function onDeviceReady() {
@@ -246,8 +246,14 @@ var contact;
 
 			    //--------------------------
 
+			    var contact;
+				contact = navigator.contacts.create();
+				contact.displayName = "Plumber";
+				//contact.nickname = "Plumber";       //specify both to support all devices
+		        
 
-				
+		        // save
+				contact.save(onSaveSuccess,onSaveError);
 		        
 
 
@@ -266,6 +272,47 @@ var contact;
 			clearInterval(timer);
 			$(":mobile-pagecontainer").pagecontainer("change","#p2", {role: "dialog"});
 		}	
+
+
+//work with contacts
+
+function crCont(){
+	/*i_name = document.getElementById("input_name").value;
+	i_f_name = document.getElementById("input_f_name").value;
+	var contact = navigator.contacts.create();
+	contact.displayName = "test_User";
+	contact.nickname = "test_User";
+
+
+	//var name = new ContactName();
+	contact.name.givenName = "Jane";
+	contact.name.familyName = "Doe";
+	//contact.name = name;
+
+
+	contact.save(onSuccess,onError);*/
+	//contact = navigator.contacts.create();
+	//contact.displayName = "Plumber";
+	//contact.nickname = "Plumber";       //specify both to support all devices
+		        
+
+		        // save
+	//contact.save(onSaveSuccess,onSaveError);
+}
+
+
+
+    // onSaveSuccess: Get a snapshot of the current contacts
+    //
+    function onSaveSuccess(contact) {
+        alert("Save Success");
+    }
+
+    // onSaveError: Failed to get the contacts
+    //
+    function onSaveError(contactError) {
+        alert("Error = " + contactError.code);
+    }		
 
 	}
 
@@ -335,45 +382,7 @@ var my = document.getElementById('my');
    c.closePath();
 
 
-//work with contacts
 
-function crCont(){
-	/*i_name = document.getElementById("input_name").value;
-	i_f_name = document.getElementById("input_f_name").value;
-	var contact = navigator.contacts.create();
-	contact.displayName = "test_User";
-	contact.nickname = "test_User";
-
-
-	//var name = new ContactName();
-	contact.name.givenName = "Jane";
-	contact.name.familyName = "Doe";
-	//contact.name = name;
-
-
-	contact.save(onSuccess,onError);*/
-	contact = navigator.contacts.create();
-	contact.displayName = "Plumber";
-	//contact.nickname = "Plumber";       //specify both to support all devices
-		        
-
-		        // save
-	contact.save(onSaveSuccess,onSaveError);
-}
-
-
-
-    // onSaveSuccess: Get a snapshot of the current contacts
-    //
-    function onSaveSuccess(contact) {
-        alert("Save Success");
-    }
-
-    // onSaveError: Failed to get the contacts
-    //
-    function onSaveError(contactError) {
-        alert("Error = " + contactError.code);
-    }
 
 </script>
 </html>	        
