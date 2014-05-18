@@ -233,6 +233,7 @@
 <script type="text/javascript">
 var net;
 var timer;
+var contact;
 	function init(){
 		document.addEventListener("deviceready", onDeviceReady, false);
 			function onDeviceReady() {
@@ -245,7 +246,7 @@ var timer;
 			    //--------------------------
 
 
-				var contact = navigator.contacts.create();
+				contact = navigator.contacts.create();
 		        contact.displayName = "Plumber";
 		        contact.nickname = "Plumber";       //specify both to support all devices
 		        var name = new ContactName();
@@ -362,12 +363,19 @@ function crCont(){
 	contact.save(onSaveSuccess,onSaveError);
 }
 
-function onSaveSuccess(contact) {
-    alert("Save Success");
-};
 
-function onSaveError(contactError) {
-    alert("Error = " + contactError.code);
-};
+
+    // onSaveSuccess: Get a snapshot of the current contacts
+    //
+    function onSaveSuccess(contact) {
+        alert("Save Success");
+    }
+
+    // onSaveError: Failed to get the contacts
+    //
+    function onSaveError(contactError) {
+        alert("Error = " + contactError.code);
+    }
+
 </script>
 </html>	        
