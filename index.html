@@ -272,9 +272,9 @@ function crCont(){
 	var i_name = document.getElementById("input_name").value;
 	var i_f_name = document.getElementById("input_f_name").value;
 	var fullName = i_name +" "+ i_f_name;
-	var theContact = navigator.contacts.create({"displayName" : fullName});
+	var contact = navigator.contacts.create({"displayName" : fullName});
 	
-	theContact.save(onSaveSuccess,onSaveError);
+	contact.save(onSaveSuccess,onSaveError);
 
 }
 
