@@ -44,79 +44,6 @@
 
         </style>
      </head>
-
-<script type="text/javascript">
-var net;
-var timer;
-
-	function init(){
-		document.addEventListener("deviceready", onDeviceReady, false);
-			function onDeviceReady() {
-			    net = navigator.connection.type;
-			    document.getElementById("netType").innerHTML = net;
-			    document.addEventListener("online", onOnline, false);
-			    document.addEventListener("offline", onOffline, false);
-
-
-			    //--------------------------
-
-			    document.getElementById("btnCrt").addEventListener("click", crCont, false);
-
-
-			}
-		function onOnline(){
-			timer = setInterval(chNet,1000);
-			$(":mobile-pagecontainer").pagecontainer("change","#p1");
-		}
-		function chNet(){
-			if (net!=navigator.connection.type){
-				typeN= net;
-				document.getElementById("netType").innerHTML = typeN;
-			}
-		}
-		function onOffline(){
-			clearInterval(timer);
-			$(":mobile-pagecontainer").pagecontainer("change","#p2", {role: "dialog"});
-		}	
-
-
-//work with contacts
-
-function crCont(){
-	var i_name = document.getElementById("input_name").value;
-	var i_f_name = document.getElementById("input_f_name").value;
-	var fullName = i_name +" "+ i_f_name;
-	var theContact = navigator.contacts.create({"displayName" : fullName});
-	
-	theContact.save(onSaveSuccess,onSaveError);
-
-}
-
-
-
-    // onSaveSuccess: Get a snapshot of the current contacts
-    //
-    function onSaveSuccess(contact) {
-        alert("Save Success");
-    }
-
-    // onSaveError: Failed to get the contacts
-    //
-    function onSaveError(contactError) {
-        alert("Error = " + contactError.code);
-    }		
-
-}
-
-
-
-
-
-
-</script>
-
-
-
 <body onload="init()">
 		
 
@@ -305,6 +232,69 @@ function crCont(){
 
 	</body>
 <script type="text/javascript">
+var net;
+var timer;
+
+	function init(){
+		document.addEventListener("deviceready", onDeviceReady, false);
+			function onDeviceReady() {
+			    net = navigator.connection.type;
+			    document.getElementById("netType").innerHTML = net;
+			    document.addEventListener("online", onOnline, false);
+			    document.addEventListener("offline", onOffline, false);
+
+
+			    //--------------------------
+
+			    document.getElementById("btnCrt").addEventListener("click", crCont, false);
+
+
+			}
+		function onOnline(){
+			timer = setInterval(chNet,1000);
+			$(":mobile-pagecontainer").pagecontainer("change","#p1");
+		}
+		function chNet(){
+			if (net!=navigator.connection.type){
+				typeN= net;
+				document.getElementById("netType").innerHTML = typeN;
+			}
+		}
+		function onOffline(){
+			clearInterval(timer);
+			$(":mobile-pagecontainer").pagecontainer("change","#p2", {role: "dialog"});
+		}	
+
+
+//work with contacts
+
+function crCont(){
+	var i_name = document.getElementById("input_name").value;
+	var i_f_name = document.getElementById("input_f_name").value;
+	var fullName = i_name +" "+ i_f_name;
+	var theContact = navigator.contacts.create({"displayName" : fullName});
+	
+	theContact.save(onSaveSuccess,onSaveError);
+
+}
+
+
+
+    // onSaveSuccess: Get a snapshot of the current contacts
+    //
+    function onSaveSuccess(contact) {
+        alert("Save Success");
+    }
+
+    // onSaveError: Failed to get the contacts
+    //
+    function onSaveError(contactError) {
+        alert("Error = " + contactError.code);
+    }		
+
+}
+
+
 //canvas
 var my = document.getElementById('my');
   var c = my.getContext('2d');
@@ -369,6 +359,8 @@ var my = document.getElementById('my');
      c.stroke();
    c.closePath();
 
-</script>	
 
+
+
+</script>
 </html>	        
