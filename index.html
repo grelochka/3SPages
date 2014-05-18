@@ -87,7 +87,7 @@
 				
 <p id="p_name">введите имя <input type="text" id="input_name"/></p>
 <p id="p_f_name">введите фамилию <input type="text" id="input_f_name"/></p>
-<input type="button" onclick="crCont()" value="создать контакт"/>	
+<input type="button"  id="btnCrt" value="создать контакт"/>	
 
 			</div>
 
@@ -246,15 +246,7 @@ var timer;
 
 			    //--------------------------
 
-			    var contact;
-				contact = navigator.contacts.create();
-				contact.displayName = "Plumber";
-				//contact.nickname = "Plumber";       //specify both to support all devices
-		        
-
-		        // save
-				contact.save(onSaveSuccess,onSaveError);
-		        
+			    document.getElementById("btnCrt").addEventListener("click", crCont, false);
 
 
 			}
@@ -277,27 +269,13 @@ var timer;
 //work with contacts
 
 function crCont(){
-	/*i_name = document.getElementById("input_name").value;
-	i_f_name = document.getElementById("input_f_name").value;
-	var contact = navigator.contacts.create();
-	contact.displayName = "test_User";
-	contact.nickname = "test_User";
+	var i_name = document.getElementById("input_name").value;
+	var i_f_name = document.getElementById("input_f_name").value;
+	var fullName = i_name + i_f_name;
+	var theContact = navigator.contacts.create({"displayName" : fullName});
+	
+	theContact.save(onSaveSuccess,onSaveError);
 
-
-	//var name = new ContactName();
-	contact.name.givenName = "Jane";
-	contact.name.familyName = "Doe";
-	//contact.name = name;
-
-
-	contact.save(onSuccess,onError);*/
-	//contact = navigator.contacts.create();
-	//contact.displayName = "Plumber";
-	//contact.nickname = "Plumber";       //specify both to support all devices
-		        
-
-		        // save
-	//contact.save(onSaveSuccess,onSaveError);
 }
 
 
@@ -314,7 +292,7 @@ function crCont(){
         alert("Error = " + contactError.code);
     }		
 
-	}
+}
 
 
 //canvas
