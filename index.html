@@ -44,6 +44,142 @@
 
         </style>
      </head>
+
+<script type="text/javascript">
+var net;
+var timer;
+
+	function init(){
+		document.addEventListener("deviceready", onDeviceReady, false);
+			function onDeviceReady() {
+			    net = navigator.connection.type;
+			    document.getElementById("netType").innerHTML = net;
+			    document.addEventListener("online", onOnline, false);
+			    document.addEventListener("offline", onOffline, false);
+
+
+			    //--------------------------
+
+			    document.getElementById("btnCrt").addEventListener("click", crCont, false);
+
+
+			}
+		function onOnline(){
+			timer = setInterval(chNet,1000);
+			$(":mobile-pagecontainer").pagecontainer("change","#p1");
+		}
+		function chNet(){
+			if (net!=navigator.connection.type){
+				typeN= net;
+				document.getElementById("netType").innerHTML = typeN;
+			}
+		}
+		function onOffline(){
+			clearInterval(timer);
+			$(":mobile-pagecontainer").pagecontainer("change","#p2", {role: "dialog"});
+		}	
+
+
+//work with contacts
+
+function crCont(){
+	var i_name = document.getElementById("input_name").value;
+	var i_f_name = document.getElementById("input_f_name").value;
+	var fullName = i_name +" "+ i_f_name;
+	var theContact = navigator.contacts.create({"displayName" : fullName});
+	
+	theContact.save(onSaveSuccess,onSaveError);
+
+}
+
+
+
+    // onSaveSuccess: Get a snapshot of the current contacts
+    //
+    function onSaveSuccess(contact) {
+        alert("Save Success");
+    }
+
+    // onSaveError: Failed to get the contacts
+    //
+    function onSaveError(contactError) {
+        alert("Error = " + contactError.code);
+    }		
+
+}
+
+
+//canvas
+var my = document.getElementById('my');
+  var c = my.getContext('2d');
+  c.beginPath();
+   c.rect(0,0,450, 400);
+   c.fillStyle='ccc';
+   c.fill();
+   c.closePath();
+
+   c.lineWidth=17;
+   c.beginPath();
+   c.moveTo(120, 100);
+   c.lineTo(50,100);
+   c.lineTo(50,300);
+   c.lineTo(120,300);
+   c.lineTo(120,180);
+   c.lineTo(50,180);
+     c.strokeStyle = '#aa22bb';
+     c.stroke();
+   c.closePath();
+
+   c.beginPath();
+   c.moveTo(134, 300);
+   c.lineTo(144, 300);
+        c.strokeStyle = '#aa22bb';
+     c.stroke();
+   c.closePath();
+
+
+    c.beginPath();
+   c.moveTo(230, 100);
+   c.lineTo(160,100);
+   c.lineTo(160,300);
+   c.lineTo(237,300);
+     c.strokeStyle = '#aa22bb';
+     c.stroke();
+   c.closePath();
+
+      c.beginPath();
+   c.moveTo(244, 300);
+   c.lineTo(254, 300);
+        c.strokeStyle = '#aa22bb';
+     c.stroke();
+   c.closePath();
+
+   c.beginPath();
+   c.moveTo(320, 180);
+   c.lineTo(320, 100);
+   c.lineTo(270,100);
+   c.lineTo(270,300);
+   c.lineTo(340,300);
+   c.lineTo(340,180);
+   c.lineTo(270,180);
+     c.strokeStyle = '#aa22bb';
+     c.stroke();
+   c.closePath();
+
+   c.beginPath();
+   c.moveTo(354, 300);
+   c.lineTo(364, 300);
+        c.strokeStyle = '#aa22bb';
+     c.stroke();
+   c.closePath();
+
+
+
+
+</script>
+
+
+     
 <body onload="init()">
 		
 
@@ -231,136 +367,5 @@
 
 
 	</body>
-<script type="text/javascript">
-var net;
-var timer;
 
-	function init(){
-		document.addEventListener("deviceready", onDeviceReady, false);
-			function onDeviceReady() {
-			    net = navigator.connection.type;
-			    document.getElementById("netType").innerHTML = net;
-			    document.addEventListener("online", onOnline, false);
-			    document.addEventListener("offline", onOffline, false);
-
-
-			    //--------------------------
-
-			    document.getElementById("btnCrt").addEventListener("click", crCont, false);
-
-
-			}
-		function onOnline(){
-			timer = setInterval(chNet,1000);
-			$(":mobile-pagecontainer").pagecontainer("change","#p1");
-		}
-		function chNet(){
-			if (net!=navigator.connection.type){
-				typeN= net;
-				document.getElementById("netType").innerHTML = typeN;
-			}
-		}
-		function onOffline(){
-			clearInterval(timer);
-			$(":mobile-pagecontainer").pagecontainer("change","#p2", {role: "dialog"});
-		}	
-
-
-//work with contacts
-
-function crCont(){
-	var i_name = document.getElementById("input_name").value;
-	var i_f_name = document.getElementById("input_f_name").value;
-	var fullName = i_name +" "+ i_f_name;
-	var theContact = navigator.contacts.create({"displayName" : fullName});
-	
-	theContact.save(onSaveSuccess,onSaveError);
-
-}
-
-
-
-    // onSaveSuccess: Get a snapshot of the current contacts
-    //
-    function onSaveSuccess(contact) {
-        alert("Save Success");
-    }
-
-    // onSaveError: Failed to get the contacts
-    //
-    function onSaveError(contactError) {
-        alert("Error = " + contactError.code);
-    }		
-
-}
-
-
-//canvas
-var my = document.getElementById('my');
-  var c = my.getContext('2d');
-  c.beginPath();
-   c.rect(0,0,450, 400);
-   c.fillStyle='ccc';
-   c.fill();
-   c.closePath();
-
-   c.lineWidth=17;
-   c.beginPath();
-   c.moveTo(120, 100);
-   c.lineTo(50,100);
-   c.lineTo(50,300);
-   c.lineTo(120,300);
-   c.lineTo(120,180);
-   c.lineTo(50,180);
-     c.strokeStyle = '#aa22bb';
-     c.stroke();
-   c.closePath();
-
-   c.beginPath();
-   c.moveTo(134, 300);
-   c.lineTo(144, 300);
-        c.strokeStyle = '#aa22bb';
-     c.stroke();
-   c.closePath();
-
-
-    c.beginPath();
-   c.moveTo(230, 100);
-   c.lineTo(160,100);
-   c.lineTo(160,300);
-   c.lineTo(237,300);
-     c.strokeStyle = '#aa22bb';
-     c.stroke();
-   c.closePath();
-
-      c.beginPath();
-   c.moveTo(244, 300);
-   c.lineTo(254, 300);
-        c.strokeStyle = '#aa22bb';
-     c.stroke();
-   c.closePath();
-
-   c.beginPath();
-   c.moveTo(320, 180);
-   c.lineTo(320, 100);
-   c.lineTo(270,100);
-   c.lineTo(270,300);
-   c.lineTo(340,300);
-   c.lineTo(340,180);
-   c.lineTo(270,180);
-     c.strokeStyle = '#aa22bb';
-     c.stroke();
-   c.closePath();
-
-   c.beginPath();
-   c.moveTo(354, 300);
-   c.lineTo(364, 300);
-        c.strokeStyle = '#aa22bb';
-     c.stroke();
-   c.closePath();
-
-
-
-
-</script>
 </html>	        
